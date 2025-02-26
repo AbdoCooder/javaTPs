@@ -35,40 +35,40 @@ import java.sql.Statement;
 import java.sql.SQLException;
 
 public class JDBCDemo {
-    public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3306/mydatabase";
-        String user = "root";
-        String password = "password";
+	public static void main(String[] args) {
+		String url = "jdbc:mysql://localhost:3306/mydatabase";
+		String user = "root";
+		String password = "password";
 
-        try {
-            // Load the JDBC driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
+		try {
+			// Load the JDBC driver
+			Class.forName("com.mysql.cj.jdbc.Driver");
 
-            // Establish a connection
-            Connection connection = DriverManager.getConnection(url, user, password);
+			// Establish a connection
+			Connection connection = DriverManager.getConnection(url, user, password);
 
-            // Create a statement
-            Statement statement = connection.createStatement();
+			// Create a statement
+			Statement statement = connection.createStatement();
 
-            // Execute a query
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM mytable");
+			// Execute a query
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM mytable");
 
-            // Process the result set
-            while (resultSet.next()) {
-                System.out.println("ID: " + resultSet.getInt("id"));
-                System.out.println("Name: " + resultSet.getString("name"));
-            }
+			// Process the result set
+			while (resultSet.next()) {
+				System.out.println("ID: " + resultSet.getInt("id"));
+				System.out.println("Name: " + resultSet.getString("name"));
+			}
 
-            // Close the resources
-            resultSet.close();
-            statement.close();
-            connection.close();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+			// Close the resources
+			resultSet.close();
+			statement.close();
+			connection.close();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
 ```
 
